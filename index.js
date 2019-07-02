@@ -63,7 +63,7 @@ async function download(item) {
 
 (async function() {
   !fs.existsSync(path.resolve(__dirname, "download")) &&
-    fs.mkdirSync(__dirname, "download");
+    fs.mkdirSync(path.resolve(__dirname, "download"));
   const list = await getList(config.cid);
   for await (const item of list) {
     await download(item).catch(err => {});
